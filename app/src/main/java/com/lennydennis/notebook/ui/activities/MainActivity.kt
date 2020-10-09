@@ -1,9 +1,10 @@
-package com.lennydennis.notebook
+package com.lennydennis.notebook.ui.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import com.lennydennis.notebook.R
 
 class MainActivity : AppCompatActivity() {
 

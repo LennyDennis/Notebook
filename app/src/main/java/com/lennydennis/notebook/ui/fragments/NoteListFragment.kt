@@ -1,29 +1,42 @@
-package com.lennydennis.notebook
+package com.lennydennis.notebook.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.lennydennis.notebook.R
+import com.lennydennis.notebook.data.DataManager
+import com.lennydennis.notebook.databinding.FragmentNoteListBinding
+import com.lennydennis.notebook.ui.adapters.NotesAdapter
+import kotlinx.android.synthetic.main.fragment_note_list.*
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
 class NoteListFragment : Fragment() {
+    private lateinit var noteListBinding: FragmentNoteListBinding
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
+        noteListBinding = FragmentNoteListBinding.inflate(inflater, container, false)
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_note_list, container, false)
+        return noteListBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        notes_recyclerView.apply {
+            layoutManager = LinearLayoutManager(requireActivity())
+            adapter = NotesAdapter(DataManager.notes)
+        }
 
         val addNewNoteButton = view.findViewById<FloatingActionButton>(R.id.add_new_note)
         addNewNoteButton?.setOnClickListener {

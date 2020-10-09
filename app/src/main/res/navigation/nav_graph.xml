@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/NoteListFragment"
-        android:name="com.lennydennis.notebook.NoteListFragment"
+        android:name="com.lennydennis.notebook.ui.fragments.NoteListFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_note_list">
         <action
@@ -17,9 +17,9 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.lennydennis.notebook.FirstFragment"
+        android:name="com.lennydennis.notebook.ui.fragments.NewNoteFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        tools:layout="@layout/fragment_new_note">
 
     </fragment>
 

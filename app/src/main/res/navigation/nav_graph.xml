@@ -6,17 +6,22 @@
     app:startDestination="@id/NoteListFragment">
 
     <fragment
+        android:id="@+id/NoteListFragment"
+        android:name="com.lennydennis.notebook.NoteListFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_note_list">
+        <action
+            android:id="@+id/action_NoteListFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+
+    <fragment
         android:id="@+id/FirstFragment"
         android:name="com.lennydennis.notebook.FirstFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_first">
 
     </fragment>
-    <fragment
-        android:id="@+id/NoteListFragment"
-        android:name="com.lennydennis.notebook.NoteListFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_note_list">
 
-    </fragment>
+
 </navigation>

@@ -34,5 +34,7 @@ class FirstFragment : Fragment() {
         adapterCourses.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
         course_spinner.adapter = adapterCourses;
+
+
     }
 }

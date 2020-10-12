@@ -20,6 +20,7 @@ import kotlinx.android.synthetic.main.fragment_note_list.*
  */
 class NoteListFragment : Fragment() {
     private lateinit var noteListBinding: FragmentNoteListBinding
+    private val mNotesAdapter = NotesAdapter(DataManager.notes)
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -35,12 +36,19 @@ class NoteListFragment : Fragment() {
 
         notes_recyclerView.apply {
             layoutManager = LinearLayoutManager(requireActivity())
-            adapter = NotesAdapter(DataManager.notes)
+            adapter = mNotesAdapter
         }
 
         val addNewNoteButton = view.findViewById<FloatingActionButton>(R.id.add_new_note)
         addNewNoteButton?.setOnClickListener {
             findNavController().navigate(R.id.action_NoteListFragment_to_FirstFragment, null)
         }
+
+        mNotesAdapter.noteClickListener = object : NotesAdapter.NoteClickListener{
+            override fun onNoteClicked(noteTitle: String, noteText: String) {
+                TODO("Not yet implemented")
+            }
+        }
+
     }
 }

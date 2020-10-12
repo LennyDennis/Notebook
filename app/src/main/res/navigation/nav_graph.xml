@@ -20,7 +20,10 @@
         android:name="com.lennydennis.notebook.ui.fragments.NewNoteFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_new_note">
-
+        <argument
+            android:name="notesPosition"
+            app:argType="integer"
+            android:defaultValue="@null" />
     </fragment>
 
 

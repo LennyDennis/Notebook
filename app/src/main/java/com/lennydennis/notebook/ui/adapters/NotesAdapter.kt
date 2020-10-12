@@ -12,7 +12,7 @@ class NotesAdapter(private val notesList: MutableList<NoteInfo>) : RecyclerView.
     lateinit var noteClickListener: NoteClickListener
 
     interface NoteClickListener {
-        fun onNoteClicked(noteTitle: String, noteText: String)
+        fun onNoteClicked(notePosition: Integer)
     }
 
     inner class NotesViewHolder(val binding: NoteItemBinding) :

@@ -51,9 +51,8 @@ class NewNoteFragment : Fragment() {
         val note = DataManager.notes[notePosition]
         et_note_title.setText(note.title)
         et_note_text.setText(note.text)
-
         val coursePosition = DataManager.courses.values.indexOf(note.course)
-        course_spinner.setSelection(coursePosition)
+        course_spinner.post(Runnable { course_spinner.setSelection(coursePosition) })
     }
 
 }

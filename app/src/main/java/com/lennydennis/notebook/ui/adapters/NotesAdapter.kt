@@ -12,7 +12,7 @@ class NotesAdapter(private val notesList: MutableList<NoteInfo>) : RecyclerView.
     lateinit var noteClickListener: NoteClickListener
 
     interface NoteClickListener {
-        fun onNoteClicked(notePosition: Integer)
+        fun onNoteClicked(notePosition: Int)
     }
 
     inner class NotesViewHolder(val binding: NoteItemBinding) :
@@ -20,12 +20,6 @@ class NotesAdapter(private val notesList: MutableList<NoteInfo>) : RecyclerView.
         fun bind(notes: NoteInfo) {
             binding.tvNoteTitle.text = notes.title
             binding.tvNoteText.text = notes.text
-            binding.noteDisplay.setOnClickListener {
-                noteClickListener.onNoteClicked(
-                    notes.title,
-                    notes.text
-                )
-            }
         }
     }
 
@@ -40,8 +34,11 @@ class NotesAdapter(private val notesList: MutableList<NoteInfo>) : RecyclerView.
     }
 
     override fun onBindViewHolder(holder: NotesViewHolder, position: Int) {
-        val movie = notesList[position]
-        holder.bind(movie)
+        val note= notesList[position]
+        holder.binding.noteDisplay.setOnClickListener {
+            noteClickListener.onNoteClicked(position)
+        }
+        holder.bind(note)
     }
 
     override fun getItemCount(): Int {

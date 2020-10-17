@@ -21,9 +21,9 @@
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_new_note">
         <argument
-            android:name="notesPosition"
+            android:name="notePosition"
             app:argType="integer"
-            android:defaultValue="@null" />
+            android:defaultValue="-1" />
     </fragment>
 
 

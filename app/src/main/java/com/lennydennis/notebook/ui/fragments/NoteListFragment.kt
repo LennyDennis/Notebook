@@ -12,6 +12,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.lennydennis.notebook.R
 import com.lennydennis.notebook.data.DataManager
 import com.lennydennis.notebook.databinding.FragmentNoteListBinding
+import com.lennydennis.notebook.model.NoteInfo
 import com.lennydennis.notebook.ui.adapters.NotesAdapter
 import kotlinx.android.synthetic.main.fragment_note_list.*
 
@@ -45,8 +46,9 @@ class NoteListFragment : Fragment() {
         }
 
         mNotesAdapter.noteClickListener = object : NotesAdapter.NoteClickListener{
-            override fun onNoteClicked(noteTitle: String, noteText: String) {
-                TODO("Not yet implemented")
+            override fun onNoteClicked(notePosition: Int) {
+                val action = NoteListFragmentDirections.actionNoteListFragmentToFirstFragment(notePosition)
+                findNavController().navigate(action)
             }
         }
 
